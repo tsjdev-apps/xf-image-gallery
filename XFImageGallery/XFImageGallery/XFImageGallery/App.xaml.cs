@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using XFImageGallery.Init;
+using XFImageGallery.Views;
 
 namespace XFImageGallery
 {
@@ -11,7 +12,7 @@ namespace XFImageGallery
 
             Bootstrapper.RegisterDependencies();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ImagesPage());
         }
 
         protected override void OnStart()

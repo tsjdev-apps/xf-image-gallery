@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFImageGallery.Views.ImagesPage"
+             Title="XF Image Gallery"
+             Padding="16"
+             Visual="Material">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,*">
+            <Entry Placeholder="Search Query"
+                   Text="{Binding SearchQuery}"
+                   Grid.Row="0" />
+
+            <Button Text="Search"
+                    Command="{Binding LoadImagesAsyncCommand}"
+                    Grid.Row="1" />
+
+            <RefreshView Command="{Binding LoadImagesAsyncCommand}"
+                         IsRefreshing="{Binding IsRefreshing}"
+                         Grid.Row="2">
+                <CollectionView x:Name="ImagesCollectionView"
+                                ItemsSource="{Binding Images}"
+                                RemainingItemsThresholdReachedCommand="{Binding LoadMoreImagesAsyncCommand}"
+                                RemainingItemsThreshold="4"
+                                Scrolled="ImagesCollectionViewOnScrolled">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding .}"
+                                   Aspect="AspectFill"
+                                   WidthRequest="200"
+                                   HeightRequest="200"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
