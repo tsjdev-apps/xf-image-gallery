@@ -1,6 +1,5 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using XFImageGallery.Init;
 
 namespace XFImageGallery
 {
@@ -9,6 +8,8 @@ namespace XFImageGallery
         public App()
         {
             InitializeComponent();
+
+            Bootstrapper.RegisterDependencies();
 
             MainPage = new MainPage();
         }
