@@ -11,6 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PixabaySharp" Version="1.1.0" />
+    <PackageReference Include="Unity.Container" Version="5.11.11" />
+    <PackageReference Include="Unity.ServiceLocation" Version="5.11.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
